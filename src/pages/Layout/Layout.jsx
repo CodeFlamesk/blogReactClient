@@ -16,7 +16,7 @@ const Layout = () => {
                 </Suspense>
             </main>
             <Suspense>
-                
+                <Footer/>
             </Suspense>
         </>
     )

@@ -7,6 +7,21 @@ import logoDes from "./img/logo-large.webp"
 import useMediaQuery from "../../hooks/useMediaQuery"
 
 
+const data = [ 
+    {
+        text:"Visitors can access a wide range of resources, including ebooks, whitepapers, reports.",
+        title:"Resource Access"
+    },
+    {
+        text:"Join our active community forum to discuss industry trends, share insights, and collaborate with peers.",
+        title:"Community Forum"
+    },
+    {
+        text:"Stay updated on upcoming tech events, webinars, and conferences to enhance your knowledge.",
+        title:"Tech Events"
+    }
+]
+
 const BottomLogo = () => {
     const query = useMediaQuery('(max-width:600.98px)');
 
@@ -33,58 +48,30 @@ const BottomLogo = () => {
                     </div>
                 </div>
                 <div className="main-logo__items item-go">
-                    <div className="item-go__item">
-                        <div className="item-go__header-link header-link">
-                            <div className="header-link__body">
-                                <div className="header-link__title text-anim _anim-items">
-                                    <h3 data-splitting="chars">Resource Access</h3>
+
+                    {
+                        data.map(({title, text}) => {
+                            return (
+                                <div key={title} className="item-go__item">
+                                    <div className="item-go__header-link header-link">
+                                        <div className="header-link__body">
+                                            <div className="header-link__title text-anim _anim-items">
+                                                <h3 data-splitting="chars">{title}</h3>
+                                            </div>
+                                            
+                                        </div>
+                                            <a href="#" className="header-link__button">
+                                                <i className="fa-solid fa-arrow-up"></i>
+                                            </a>
+                                    </div>
+                                    <div className="item-go__text">
+                                        <p>{text}</p>
+                                    </div>
                                 </div>
-                            </div>
-                                <a href="#" className="header-link__button ">
-                                    <i className="fa-solid fa-arrow-up"></i>
-                                </a>
-                            
-                        </div>
-                        <div className="item-go__text">
-                            <p>Visitors can access a wide range of resources, including ebooks, whitepapers, reports.</p>
-                        </div>
-                    </div>
-                    <div className="item-go__item">
-                        <div className="item-go__header-link header-link">
-                            <div className="header-link__body">
-                                <div className="header-link__title text-anim _anim-items">
-                                    <h3 data-splitting="chars">Community Forum</h3>
-                                </div>
-                                
-                            </div>
-                            
-                                <a href="#" className="header-link__button">
-                                    <i className="fa-solid fa-arrow-up"></i>
-                                </a>
-                        
-                        </div>
-                        <div className="item-go__text">
-                            <p>Join our active community forum to discuss industry trends, share insights, and collaborate with peers.</p>
-                        </div>
-                    </div>
-                    <div className="item-go__item">
-                        <div className="item-go__header-link header-link">
-                            <div className="header-link__body">
-                                <div className="header-link__title text-anim _anim-items">
-                                    <h3 data-splitting="chars">Tech Events</h3>
-                                </div>
-                                
-                            </div>
-                            
-                                <a href="#" className="header-link__button">
-                                    <i className="fa-solid fa-arrow-up"></i>
-                                </a>
-                            
-                        </div>
-                        <div className="item-go__text">
-                            <p>Stay updated on upcoming tech events, webinars, and conferences to enhance your knowledge.</p>
-                        </div>
-                    </div>
+                            )
+                        })
+                    }
+                    
                 </div>
             </div>
         </section>
@@ -96,8 +83,8 @@ const Logo = () => {
     return (
         <div className="main-logo__image ">
             <picture>
-                <source media="(min-width:1300px )" srcset={logoDes} type="image/webp"/>
-                <source media="(min-width:700.98px )" srcset={logoSmall} type="image/webp"/>
+                <source media="(min-width:1300px )" srcSet={logoDes} type="image/webp"/>
+                <source media="(min-width:700.98px )" srcSet={logoSmall} type="image/webp"/>
                 <img loading="lazy" src={logoMobile} alt="Logo"/>
             </picture>
         </div>
