@@ -53,9 +53,9 @@ const data = [
 
 const Reviews = () => {
     return (
-        <section class="main__real main-real">
-            <div class="main-real__container">
-                <div class="main-real__items">
+        <section className="main__real main-real">
+            <div className="main-real__container">
+                <div className="main-real__items">
                     {
                         data.map(item => {
                             return (
@@ -72,22 +72,22 @@ const Reviews = () => {
 const ReviewItem = ({img, name, city, comment}) => {
 
     return (
-        <div class="main-real__item">
-            <div class="main-real__person person">
-                <div class="person__image">
+        <div className="main-real__item">
+            <div className="main-real__person person">
+                <div className="person__image">
                     <img loading="lazy" width="60" height="60" src={img} alt="user"/>
                 </div>
-                <div class="person__info">
-                    <div class="person__title">
+                <div className="person__info">
+                    <div className="person__title">
                         <h3>{name}</h3>
                     </div>
-                    <div class="person__text">
+                    <div className="person__text">
                         <p>{city}</p>
                     </div>
                 </div>
             </div>
             <Stars/>
-            <div class="main-real__text">
+            <div className="main-real__text">
                 <p>{comment}</p>
             </div>
         </div>

@@ -4,7 +4,7 @@ import "./bottom-logo.scss"
 import logoSmall from "./img/logo-smal.webp"
 import logoMobile from "./img/logo-mobile.webp"
 import logoDes from "./img/logo-large.webp"
-import useMediaQuery from "../../hooks/useMediaQuery"
+import useMediaQuery from "hooks/useMediaQuery"
 
 
 const data = [ 
@@ -55,8 +55,8 @@ const BottomLogo = () => {
                                 <div key={title} className="item-go__item">
                                     <div className="item-go__header-link header-link">
                                         <div className="header-link__body">
-                                            <div className="header-link__title text-anim _anim-items">
-                                                <h3 data-splitting="chars">{title}</h3>
+                                            <div className="header-link__title">
+                                                <h3 >{title}</h3>
                                             </div>
                                             
                                         </div>

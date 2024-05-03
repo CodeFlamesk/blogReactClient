@@ -1,6 +1,6 @@
 
 
-import useMediaQuery from "../../../hooks/useMediaQuery"
+import useMediaQuery from "hooks/useMediaQuery"
 import "./header-top.scss"
 
 const HeaderTop = () => {

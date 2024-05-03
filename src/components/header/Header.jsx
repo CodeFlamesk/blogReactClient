@@ -25,10 +25,6 @@ const menu = [
     {
         to: "/resourse",
         page: "Resources"
-    },
-    {
-        to: "/contact",
-        page: "Contact Us"
     }
 ]
 

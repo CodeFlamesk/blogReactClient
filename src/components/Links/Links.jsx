@@ -28,9 +28,9 @@ const data = [
 
 const Links = () => {
     return (
-        <section class="main__links main-links">	
-            <div class="main-links__container">
-                <div class="main-links__body">
+        <section className="main__links main-links">	
+            <div className="main-links__container">
+                <div className="main-links__body">
                     {
                         data.map(item => {
                             return (
@@ -46,29 +46,30 @@ const Links = () => {
 
 const Link = ({img, text, title, label}) => {
     return (
-        <div class="main-links__item link-item">
-            <div class="link-item__image ">
+        <div className="main-links__item link-item">
+            <div className="link-item__image ">
                 <img width="50" height="50" src={img} alt="icon"/>
             </div>
-            <div class="link-item__header header-link">
-                <div class="header-link__body">
-                    <div class="header-link__title">
+            <div className="link-item__header header-link">
+                <div className="header-link__body">
+                    <div className="header-link__title">
                         <h3>{label}</h3>
                     </div>
-                    <div class="header-link__text">
+                    <div className="header-link__text">
                         <p>{title}</p>
                     </div>
                 </div>
-                <div class="header-link__btn">
-                    <a href="#" class="header-link__button">
-                        <i class="fa-solid fa-arrow-up"></i>
+                <div className="header-link__btn">
+                    <a href="#" className="header-link__button">
+                        <i className="fa-solid fa-arrow-up"></i>
                     </a>
                 </div>
             </div>
-            <div class="link-item__text">
+            <div className="link-item__text">
                 <p>{text}</p>
             </div>
         </div>
     )
 }
+
 export default Links

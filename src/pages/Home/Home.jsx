@@ -1,13 +1,13 @@
 
-import HomeMainBlock from "../../components/HomeMainBlock/HomeMainBlock"
-import Links from '../../components/Links/Links'
-import BlockHeaderItem from '../../components/BlockHeaderItem/BlockHeaderItem'
-import RightButton from '../../components/RightButton/RightButton'
-import Reviews from "../../components/Reviews/Reviews"
-import BottomLogo from "../../components/BottomLogo/BottomLogo"
-import Future from "../../components/Future/Future"
-import Explore from "../../components/Explore/Explore"
-import Unlock from "../../components/Unlock/Unlock"
+import HomeMainBlock from "components/HomeMainBlock/HomeMainBlock"
+import Links from 'components/Links/Links'
+import BlockHeaderItem from 'components/BlockHeaderItem/BlockHeaderItem'
+import RightButton from 'components/RightButton/RightButton'
+import Reviews from "components/Reviews/Reviews"
+import BottomLogo from "components/BottomLogo/BottomLogo"
+import Future from "components/Future/Future"
+import Explore from "components/Explore/Explore"
+import Unlock from "components/Unlock/Unlock"
 
 
 const Home = () => {
@@ -31,7 +31,7 @@ const Home = () => {
                 <RightButton text={"View All Testimonials"}/>
             </BlockHeaderItem>
             <Reviews/>
-            <BottomLogo/>
+            
         </>
     )
 }

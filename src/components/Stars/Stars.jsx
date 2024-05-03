@@ -5,7 +5,7 @@ import "./star.scss"
 
 const Stars = () => {
     return (
-        <div class="main-real__rating rating">
+        <div className="main-real__rating rating">
             <div>
                 <img src={star} alt="star" />
             </div>

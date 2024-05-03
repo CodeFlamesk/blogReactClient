@@ -1,7 +1,8 @@
 import { Suspense } from "react";
-import Footer from "../../components/footer/Footer";
+import Footer from "components/footer/Footer";
 import { Outlet } from "react-router-dom";
-import Header from "../../components/header/Header"
+import Header from "components/header/Header"
+import BottomLogo from "components/BottomLogo/BottomLogo";
 
 const Layout = () => {
 
@@ -16,6 +17,7 @@ const Layout = () => {
                 </Suspense>
             </main>
             <Suspense>
+                <BottomLogo/>
                 <Footer/>
             </Suspense>
         </>

@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom"
 import "./footer.scss"
 
 
@@ -17,7 +18,7 @@ const Footer = () => {
                                     <a href="/" className="footer__link">Features</a>
                                 </li>
                                 <li className="footer__item">
-                                    <a href="blogui-blog.html" className="footer__link">Blogs</a>
+                                    <Link to="/blog" className="footer__link">Blogs</Link>
                                 </li>
                                 <li className="footer__item">
                                     <a href="blogui-resourse.html" className="footer__link">Resources <span>New</span></a>
