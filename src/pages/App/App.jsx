@@ -1,12 +1,13 @@
 import {Routes, Route} from "react-router-dom"
 import Layout from "../Layout/Layout"
-import Home from "../Home/Home"
-import News from "../News/News"
-import Blog from "../Blog/Blog"
-import Podcast from "../Podcast/Podcast"
-import Resources from "../Resources/Resources"
-import Contact from "../Contact/Contact"
+import { lazy } from "react"
 
+const Home = lazy(() => import("../Home/Home"));
+const Blog = lazy(() => import("../Blog/Blog"));
+const Podcast = lazy(() => import("../Podcast/Podcast"));
+const News = lazy(() => import("../News/News"));
+const Resources = lazy(() => import("../Resources/Resources"));
+const Contact = lazy(() => import("../Contact/Contact"));
 
 function App() {
 

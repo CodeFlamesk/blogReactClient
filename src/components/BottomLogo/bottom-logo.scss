@@ -30,23 +30,7 @@
         }
     }
 
-    // .header-item__title
-
-    &__title {
-        font-family: "Kumbh Sans";
-        font-size: 58px;
-        font-weight: 500;
-        line-height: 1.3; 
-        letter-spacing: -1.74px;
-        @media(max-width:1280.98px){
-            font-size: 44px;
-            letter-spacing: -1.32px;
-        }
-        @media(max-width:991.98px){
-            font-size: 28px;
-            letter-spacing: -0.84px;
-        }
-    }
+    
 
     // .header-item__text
 
@@ -55,6 +39,7 @@
         letter-spacing: -0.54px;
     }
 }
+
 .main-logo__header-item {
     .header-item__title {
         &:not(:last-child){

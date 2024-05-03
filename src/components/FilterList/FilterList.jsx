@@ -30,6 +30,7 @@ import useMediaQuery from "hooks/useMediaQuery";
 
 
 
+
 const FilterList = () => {
     const query = useMediaQuery('(max-width:767.98px)');
 

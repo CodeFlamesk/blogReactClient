@@ -1,3 +1,4 @@
+import HeaderItemTitle from "components/BlocksText/HeaderItemTitle/HeaderItemTitle"
 import "./block-header-item.scss"
 
 const BlockHeaderItem = ({children, title, label}) => {
@@ -9,9 +10,7 @@ const BlockHeaderItem = ({children, title, label}) => {
                         <div className='header-item__label '>
                             <p >{label}</p>
                         </div>
-                        <div className='header-item__title'>
-                            <h2>{title}</h2>
-                        </div>
+                        <HeaderItemTitle title={title}/>
                     </div>
                     {
                         children && <div className="main-header__button">

@@ -5,6 +5,7 @@ import logoSmall from "./img/logo-smal.webp"
 import logoMobile from "./img/logo-mobile.webp"
 import logoDes from "./img/logo-large.webp"
 import useMediaQuery from "hooks/useMediaQuery"
+import HeaderItemTitle from "components/BlocksText/HeaderItemTitle/HeaderItemTitle"
 
 
 const data = [ 
@@ -39,16 +40,13 @@ const BottomLogo = () => {
                                 <p >Learn, Connect, and Innovate</p>
                             </div>
                         </div>
-                        <div className='header-item__title '>
-                            <h2>Be Part of the Future Tech Revolution</h2>
-                        </div>
+                        <HeaderItemTitle title={"Be Part of the Future Tech Revolution"}/>
                         <div className='header-item__text text  '>
                             <p>Immerse yourself in the world of future technology. Explore our comprehensive resources, connect with fellow tech enthusiasts, and drive innovation in the industry. Join a dynamic community of forward-thinkers.</p>
                         </div>
                     </div>
                 </div>
                 <div className="main-logo__items item-go">
-
                     {
                         data.map(({title, text}) => {
                             return (
