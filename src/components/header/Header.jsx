@@ -7,6 +7,9 @@ import logoDesktop from "./img/logo-large.webp"
 import logoTablet from "./img/logo-small.webp"
 import HeaderTop from './HeaderTop/HeaderTop'
 import { useState } from 'react'
+import ButtonAdmin from 'components/Buttons/ButtonAdmin/ButtonAdmin'
+import { useDispatch } from 'react-redux'
+import { changeAdmin } from 'store/DashboardReducer'
 
 
 const menu = [
@@ -30,7 +33,10 @@ const menu = [
 
 const Header = () => {
 
+    const dispatch = useDispatch();
+
     const [active, setActive] = useState(false);
+
 
     return (
                 <header className={`header ${active ? " _active" : null}`}>
@@ -57,9 +63,10 @@ const Header = () => {
                                             )
                                         })
                                     }
+                                    
                                 </ul>
-                                
                             </nav> 
+                            <ButtonAdmin cb={() => dispatch(changeAdmin())}/>
                             <NavLink to="contact" id="contact-button" className="button-orange">
                                 Contact Us
                             </NavLink>
@@ -76,7 +83,6 @@ const Header = () => {
                                         d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20" />
                                 </svg>
                             </button>
-
                         </div>
                     </div>
                 </div>
