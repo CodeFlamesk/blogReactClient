@@ -1,10 +1,10 @@
 
 
 import "./dashboard-panel-buttons.scss"
-const DashboardPanelButtons = ({text, children}) => {
+const DashboardPanelButtons = ({text, children, cb}) => {
 
     return (
-        <button className="dashboard__panel-buttons">
+        <button onClick={() => cb()} className="dashboard__panel-buttons">
             {children}
             {text}
         </button>

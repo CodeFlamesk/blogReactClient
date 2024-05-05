@@ -58,3 +58,20 @@
         }
     }
 }
+
+#description h3{
+    font-size: 28px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+#description {
+    color:#98989A;
+    font-size: 18px;
+    @media(max-width:1280.98px){
+        font-size: 16px;
+    }
+    @media(max-width:991.98px){
+        font-size: 14px;
+    }
+}

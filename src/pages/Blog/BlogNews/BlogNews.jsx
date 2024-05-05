@@ -1,6 +1,33 @@
 
+import { useSelector } from "react-redux"
 import "./blog-news.scss"
+
+import { useState } from "react";
+
+
 const BlogNews = () => {
+
+
+    const {
+        introductionText,
+        author,
+        readingTime,
+        categoryId,
+        likes,
+        comments,
+        share,
+        description
+    } = useSelector(store => store.dashboard.post);
+
+
+    const minuts = Math.ceil(readingTime / 1000 / 60)
+
+    const loadingBlog = useSelector(store => store.dashboard.loadingBlog)
+
+
+    const [show, setShow] = useState(false)
+
+
     return (
         <div className="main__intro main-intro">
             <div className="main-intro__container">
@@ -11,34 +38,24 @@ const BlogNews = () => {
                                 <h2 data-splitting="chars">Introduction</h2>
                             </div>
                             <div className="intro-labels__text text-anim _anim-items">
-                                <p>Artificial Intelligence (AI) has emerged as a transformative force in the healthcare industry, reshaping patient care, diagnostics, and research. In this blog post, we explore the profound impact of AI in healthcare, from revolutionizing diagnostic accuracy to enhancing patient outcomes.</p>
+                                <p>{introductionText}</p>
                             </div>
                         </div>
                         <div className="main-intro__article blog-article">
-                            <div className="blog-article__title text-anim _anim-items">
-                                <h3 data-splitting="chars">Artificial Intelligence (AI)</h3>
+                            <div style={{height: `${show ? "auto" : "600px"}`, overflow: "hidden", marginBottom: "20px"}} id="description" dangerouslySetInnerHTML={{__html:description}} >
+                                
                             </div>
-                            <div className="blog-article__text">
-                                <p>Artificial Intelligence (AI) has permeated virtually every aspect of our lives, and healthcare is no exception. The integration of AI in healthcare is ushering in a new era of medical practice, where machines complement the capabilities of healthcare professionals, ultimately improving patient outcomes and the efficiency of the healthcare system. In this blog post, we will delve into the diverse applications of AI in healthcare, from diagnostic imaging to personalized treatment plans, and address the ethical considerations surrounding this revolutionary technology.</p>
-                            </div>
-                            <div className="blog-article__text">
-                                <p>Artificial Intelligence (AI) has permeated virtually every aspect of our lives, and healthcare is no exception. The integration of AI in healthcare is ushering in a new era of medical practice, where machines complement the capabilities of healthcare professionals, ultimately improving patient outcomes and the efficiency of the healthcare system. In this blog post, we will delve into the diverse applications of AI in healthcare, from diagnostic imaging to personalized treatment plans, and address the ethical considerations surrounding this revolutionary technology.</p>
-                            </div>
-                            <div className="blog-article__title text-anim _anim-items">
-                                <h3 data-splitting="chars">Predictive Analytics and Disease Prevention</h3>
-                            </div>
-                            <div className="blog-article__text">
-                                <p>Artificial Intelligence (AI) has permeated virtually every aspect of our lives, and healthcare is no exception. The integration of AI in healthcare is ushering in a new era of medical practice, where machines complement the capabilities of healthcare professionals, ultimately improving patient outcomes and the efficiency of the healthcare system. In this blog post, we will delve into the diverse applications of AI in healthcare, from diagnostic imaging to personalized treatment plans, and address the ethical considerations surrounding this revolutionary technology.</p>
-                            </div>
-                            <div className="blog-article__add">
-                                <button className="button-arrow button">
-                                    <span className="button-arrow__text button-text">Read Full Blog</span>      
-                                    <span className="button-arrow__image-bottom button-text">
-                                        <i className="fa-solid fa-arrow-down"></i>
-                                    </span>
-                                    <span className="fill-container"></span>
-                                </button>
-                            </div>
+                            {
+                                !show &&  <div className="blog-article__add">
+                                            <button onClick={() => setShow(prev => !prev)} className="button-arrow button">
+                                                <span className="button-arrow__text button-text">Read Full Blog</span>      
+                                                <span className="button-arrow__image-bottom button-text">
+                                                    <i className="fa-solid fa-arrow-down"></i>
+                                                </span>
+                                                <span className="fill-container"></span>
+                                            </button>
+                                        </div>
+                            }
                         </div>
                         
                     </div>
@@ -48,19 +65,19 @@ const BlogNews = () => {
                                 <span className="data__image">
                                     <i className="fa-regular fa-heart"></i>
                                 </span>
-                                <p className="data__text">32k</p>
+                                <p className="data__text">{likes}</p>
                             </a>
                             <a href="/" className="data__item">
                                 <span className="data__image">
                                     <i className="fa-regular fa-comment"></i>
                                 </span>
-                                <p className="data__text">72</p>
+                                <p className="data__text">{!loadingBlog ?  comments.length : "Loading"}</p>
                             </a>
                             <a href="/" className="data__item">
                                 <span className="data__image">
                                     <i className="fa-regular fa-paper-plane"></i>
                                 </span>
-                                <p className="data__text">18</p>
+                                <p className="data__text">{share}</p>
                             </a>
                         </div>
                         <div className="intro-right__content">
@@ -71,15 +88,15 @@ const BlogNews = () => {
                                 </ul>
                                 <ul className="list-item__ul text-anim _anim-items">
                                     <li data-splitting="chars" className="list-item__text">Category</li>
-                                    <li data-splitting="chars" className="list-item__label">Healthcare</li>
+                                    <li data-splitting="chars" className="list-item__label">{categoryId}</li>
                                 </ul>
                                 <ul className="list-item__ul text-anim _anim-items">
                                     <li data-splitting="chars" className="list-item__text">Reading Time</li>
-                                    <li data-splitting="chars" className="list-item__label">10 Min</li>
+                                    <li data-splitting="chars" className="list-item__label">{minuts} minutes</li>
                                 </ul>
                                 <ul className="list-item__ul text-anim _anim-items">
                                     <li data-splitting="chars" className="list-item__text">Author Name</li>
-                                    <li data-splitting="chars" className="list-item__label">Dr. Emily Walker</li>
+                                    <li data-splitting="chars" className="list-item__label">{author}</li>
                                 </ul>
                             </div>
                             <div className="intro-right__table intro-table">

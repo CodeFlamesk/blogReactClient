@@ -10,7 +10,6 @@ const Blog = () => {
             <BlogMainBlock/>
             <BlogNews/>
             <NewsBlockPopular/>
-            
         </>
     )
 }

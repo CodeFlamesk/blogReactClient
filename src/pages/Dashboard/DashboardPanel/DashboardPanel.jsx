@@ -1,6 +1,6 @@
 import ButtonAdmin from "components/Buttons/ButtonAdmin/ButtonAdmin"
 import { useDispatch } from "react-redux"
-import { changeClient } from "store/DashboardReducer";
+import { changeClient, changePanel } from "store/DashboardReducer";
 
 import "./dashboard-panel.scss"
 import logo from "./img/logo-mobile.webp"
@@ -12,14 +12,21 @@ const DashboardPanel = () => {
 
     const dispatch = useDispatch();
 
+
     return (
         <div className="dashboard__panel">
             <div className="dashboard__top">
                 <img width={126} height={35} alt="Logo" src={logo}/>
-                <ButtonAdmin cb={() => dispatch(changeClient())}/>
+                <ButtonAdmin to={"/"} cb={() => dispatch(changeClient())}/>
             </div>
             <div className="dashboard__buttons">
-                <DashboardPanelButtons text={"Dashboard"}>
+                <DashboardPanelButtons cb={() => dispatch(changePanel("dashboard"))} text={"Dashboard"}>
+                    <DashboardIcon/>
+                </DashboardPanelButtons>
+                <DashboardPanelButtons cb={() => dispatch(changePanel("news"))} text={"News"}>
+                    <DashboardIcon/>
+                </DashboardPanelButtons>
+                <DashboardPanelButtons cb={() => dispatch(changePanel("category"))} text={"Category"}>
                     <DashboardIcon/>
                 </DashboardPanelButtons>
             </div>

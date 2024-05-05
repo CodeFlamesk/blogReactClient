@@ -1,7 +1,8 @@
 import {Routes, Route} from "react-router-dom"
 import Layout from "../Layout/Layout"
-import { lazy } from "react"
-import { useSelector } from "react-redux";
+import { lazy, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux";
+import dashboardAction from "action/dashboardAction";
 
 const Home = lazy(() => import("../Home/Home"));
 const Blog = lazy(() => import("../Blog/Blog"));
@@ -13,33 +14,29 @@ const Dashboard = lazy(() => import("../Dashboard/Dashboard"))
 
 function App() {
 
-    const {layout} = useSelector(store => store.dashboard);
+    const dispatch = useDispatch()
 
-/*
-    if(layout === "client") {
+    useEffect(() => {
+        dispatch(dashboardAction.getPost("6637dbf3d6a85d64e4dfba38"))
+    }, [])
+
+   
+    
+
+    
         return (
             <Routes>
                 <Route path="/" element={ <Layout />}>
                     <Route index element={<Home/>}/>
                     <Route path="news" element={<News/>}/>
-                    <Route path="blog" element={<Blog/>}/>
+                    <Route path="blog" element={<Blog/> }/>
                     <Route path="podcast" element={<Podcast/>}/>
                     <Route path="resourse" element={<Resources/>}/>
                     <Route path="contact" element={<Contact/>}/>
+                    <Route path="dashboard" element={ <Dashboard/>}></Route>
                 </Route>
             </Routes>
         )
-    } 
-    */
-    
-        return (
-            <Routes>
-                    <Route path="/" element={ <Dashboard/>}></Route>
-            </Routes>
-        )
-    
-    
-
 }
 
 export default App

@@ -66,8 +66,8 @@ const Header = () => {
                                     
                                 </ul>
                             </nav> 
-                            <ButtonAdmin cb={() => dispatch(changeAdmin())}/>
-                            <NavLink to="contact" id="contact-button" className="button-orange">
+                            <ButtonAdmin to={"/dashboard"} cb={() => dispatch(changeAdmin())}/>
+                            <NavLink to="/contact" id="contact-button" className="button-orange">
                                 Contact Us
                             </NavLink>
                             <button onClick={() => setActive(prev => !prev)} className="icon-menu" aria-label="menu">
