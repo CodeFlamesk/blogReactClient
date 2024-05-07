@@ -14,29 +14,37 @@ const Dashboard = lazy(() => import("../Dashboard/Dashboard"))
 
 function App() {
 
+
+    const activePostId = useSelector(store => store.dashboard.activePostId);
+    const categoryId = useSelector(store => store.dashboard.categoryId)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(dashboardAction.getPost("6637dbf3d6a85d64e4dfba38"))
+        dispatch(dashboardAction.getPost(activePostId))
+    }, [activePostId])
+
+    useEffect(() => {
+        dispatch(dashboardAction.getAllPost(categoryId))
+    }, [categoryId])
+
+    useEffect(() => {
+        dispatch(dashboardAction.getCategory())
     }, [])
 
-   
-    
 
-    
-        return (
-            <Routes>
-                <Route path="/" element={ <Layout />}>
-                    <Route index element={<Home/>}/>
-                    <Route path="news" element={<News/>}/>
-                    <Route path="blog" element={<Blog/> }/>
-                    <Route path="podcast" element={<Podcast/>}/>
-                    <Route path="resourse" element={<Resources/>}/>
-                    <Route path="contact" element={<Contact/>}/>
-                    <Route path="dashboard" element={ <Dashboard/>}></Route>
-                </Route>
-            </Routes>
-        )
+    return (
+        <Routes>
+            <Route path="/" element={ <Layout />}>
+                <Route index element={<Home/>}/>
+                <Route path="news" element={<News/>}/>
+                <Route path="blog" element={<Blog/> }/>
+                <Route path="podcast" element={<Podcast/>}/>
+                <Route path="resourse" element={<Resources/>}/>
+                <Route path="contact" element={<Contact/>}/>
+                <Route path="dashboard" element={ <Dashboard/>}></Route>
+            </Route>
+        </Routes>
+    )
 }
 
 export default App

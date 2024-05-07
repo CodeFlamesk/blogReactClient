@@ -1,7 +1,7 @@
 
 import axios from "axios"
 import { _API_URL } from "../../config"
-import { categoryGet, getChangeLoadingBlog, getPostOnId } from "store/DashboardReducer";
+import { categoryGet, getPostOnId, getPostsAll } from "store/DashboardReducer";
 
 
 
@@ -18,16 +18,15 @@ class DashboardAction {
             console.log(e)
         }
     }
+
     getCategory(){
         return async dispatch => {
-
             try {
-                const response = await  axios.get(`${_API_URL}/category`);
-                return dispatch(categoryGet(response.data), getChangeLoadingBlog("false"))
+                const response = await axios.get(`${_API_URL}/category`);
+                return dispatch(categoryGet(response.data))
             } catch(e) {
                 console.log(e)
             }
-            
         }
     }
 
@@ -52,8 +51,7 @@ class DashboardAction {
     getPost(id){
         return async dispatch => {
             try {
-                const response = await axios.get(`${_API_URL}/blog/${id}`);
-                console.log(response.data)
+                const response = await axios.get(`${_API_URL}/blog/blog/${id}`);
                 return dispatch(getPostOnId(response.data))
             }catch(e) {
                 console.log(e)
@@ -62,5 +60,12 @@ class DashboardAction {
         }
     }
 
+    getAllPost(categoryId) {
+        return async dispatch => {
+            
+            const response = await axios.get(`${_API_URL}/blog/blogs/all?id=${categoryId}`,);
+            return dispatch(getPostsAll(response.data));
+        }
+    }
 }
 export default new DashboardAction

@@ -5,7 +5,9 @@ const defaultState = {
     category: [],
     categoryId: "",
     post: {},
-    loadingBlog: true
+    loadingBlog: true,
+    posts: [],
+    activePostId:"66392af9f42375023539389e",
 }
 
 const CHANGE_ADMIN = "CHANGE_ADMIN";
@@ -14,7 +16,9 @@ const CHANGE_PANEL = "CHANGE_PANEL";
 const CATEGORY_GET = "CATEGORY_GET";
 const CHANGE_CATEGORY_ID_NEWS = "CHANGE_CATEGORY_ID_NEWS";
 const GET_BLOG = "GET_BLOG";
-const CHANGE_LOADING_BLOG = "CHANGE_LOADING_BLOG";
+const GET_POSTS_ALL = "GET_POSTS_ALL";
+const CHANGE_ACTIVE_POST_ID = "CHANGE_ACTIVE_POST_ID";
+
 
 
 export const dashboardReducer = (state = defaultState, action) => {
@@ -30,9 +34,11 @@ export const dashboardReducer = (state = defaultState, action) => {
         case CHANGE_CATEGORY_ID_NEWS: 
             return {...state, categoryId:action.payload}
         case GET_BLOG: 
-            return {...state, post:action.payload}
-        case CHANGE_LOADING_BLOG: 
-            return {...state, loadingBlog : action.payload}
+            return {...state, post:action.payload, loadingBlog: false}
+        case GET_POSTS_ALL: 
+            return {...state, posts: action.payload}
+        case CHANGE_ACTIVE_POST_ID: 
+            return {...state, activePostId: action.payload}
             default: 
                 return state 
     }
@@ -44,5 +50,6 @@ export const changePanel = (payload) => ({type: CHANGE_PANEL, payload})
 export const categoryGet = (payload) => ({type: CATEGORY_GET, payload})
 export const changeCategoryIdNews = (payload) => ({type: CHANGE_CATEGORY_ID_NEWS, payload})
 export const getPostOnId = (payload) => ({type: GET_BLOG, payload})
-export const getChangeLoadingBlog = (payload) => ({type: CHANGE_LOADING_BLOG, payload})
+export const getPostsAll = (payload) => ({type: GET_POSTS_ALL, payload})
+export const changeActivePostId = (payload) => ({type: CHANGE_ACTIVE_POST_ID, payload})
 

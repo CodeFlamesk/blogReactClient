@@ -40,7 +40,7 @@ const Unlock = () => {
                                             <h3>10k + Users</h3>
                                         </div>
                                     </div>
-                                    <div classNameName="users">
+                                    <div className="users">
                                     <Users/>
                                     </div>
                                     

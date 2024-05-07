@@ -1,9 +1,11 @@
+
 import "./right-button.scss";
 
 
 const RightButton = ({text, cb, type}) => {
-    return (
 
+    
+        return (
             <button type={type ? type : "button"} onClick={(e) => {
                 e.preventDefault()
                 cb()
@@ -14,7 +16,9 @@ const RightButton = ({text, cb, type}) => {
                 </span>
                 <span className="fill-container"></span>
             </button>
-    )
+        )
+    
+
 }
 
 export default RightButton

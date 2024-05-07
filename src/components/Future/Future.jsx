@@ -61,9 +61,9 @@ const Future = () => {
 			<div className="main-future__container">
 				<div className="main-future__body">
 					{
-						data.map(({img,title, text, data}) => {
+						data.map(({img,title, text, data}, i) => {
 							return (
-								<div className="main-future__item item-action">
+								<div key={i} className="main-future__item item-action">
 									<div className="item-action__body">
 										<div className="item-action__image ">
 											<img width="80" height="80" src={img} alt="image"/>
@@ -78,9 +78,9 @@ const Future = () => {
 									<div className="item-action__content">
 										<div className="item-action__items">
 											{
-												data.map(({title, text}) => {
+												data.map(({title, text}, i) => {
 													return (
-														<div className="item-action__item card-info">
+														<div key={i} className="item-action__item card-info">
 															<div className="card-info__title ">
 																<h4>{title}</h4>
 															</div>
