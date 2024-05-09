@@ -32,15 +32,18 @@ class DashboardAction {
 
     async addNewPosts(intro, files, description, author, category, mainTitle, descriptionTag) {
         try {
+            
             const formData = new FormData();
             formData.append("intro", intro);
             formData.append("file", files[0]);
+            
             formData.append("description", description);
             formData.append("author", author);
             formData.append("mainTitle", mainTitle);
             formData.append("descriptionTag", descriptionTag);
 
             const response = axios.post(`${_API_URL}/blog/${category}`, formData)
+            
             return response
         }catch(e) {
 

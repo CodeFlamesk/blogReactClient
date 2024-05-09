@@ -10,7 +10,9 @@ const Podcast = lazy(() => import("../Podcast/Podcast"));
 const News = lazy(() => import("../News/News"));
 const Resources = lazy(() => import("../Resources/Resources"));
 const Contact = lazy(() => import("../Contact/Contact"));
-const Dashboard = lazy(() => import("../Dashboard/Dashboard"))
+const Dashboard = lazy(() => import("../Dashboard/Dashboard"));
+const Login = lazy(() => import("../Auth/Login"));
+const Sign = lazy(() => import("../Auth/Sign"));
 
 function App() {
 
@@ -42,6 +44,8 @@ function App() {
                 <Route path="resourse" element={<Resources/>}/>
                 <Route path="contact" element={<Contact/>}/>
                 <Route path="dashboard" element={ <Dashboard/>}></Route>
+                <Route path="login" element={ <Login/>}></Route>
+                <Route path="sign-up" element={ <Sign/>}></Route>
             </Route>
         </Routes>
     )

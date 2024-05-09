@@ -28,7 +28,16 @@ const menu = [
     {
         to: "/resourse",
         page: "Resources"
+    },
+    {
+        to: "/login",
+        page: "Login"
+    },
+    {
+        to: "/sign-up",
+        page: "Sign up"
     }
+
 ]
 
 const Header = () => {
