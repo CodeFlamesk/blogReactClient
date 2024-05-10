@@ -3,6 +3,8 @@ import Layout from "../Layout/Layout"
 import { lazy, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import dashboardAction from "action/dashboardAction";
+import authAction from "action/authAction";
+import LoadingApp from "components/Loading/LoadingApp";
 
 const Home = lazy(() => import("../Home/Home"));
 const Blog = lazy(() => import("../Blog/Blog"));
@@ -19,7 +21,9 @@ function App() {
 
     const activePostId = useSelector(store => store.dashboard.activePostId);
     const categoryId = useSelector(store => store.dashboard.categoryId)
-    const dispatch = useDispatch()
+    const isLoading = useSelector(store => store.user.isLoading)
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(dashboardAction.getPost(activePostId))
@@ -33,6 +37,15 @@ function App() {
         dispatch(dashboardAction.getCategory())
     }, [])
 
+    useEffect(() => {
+        if(localStorage.getItem("token")) {
+            dispatch(authAction.checkAuth())
+        }
+    },[]);
+
+    if(isLoading) {
+        return <LoadingApp/>
+    }
 
     return (
         <Routes>
@@ -43,9 +56,11 @@ function App() {
                 <Route path="podcast" element={<Podcast/>}/>
                 <Route path="resourse" element={<Resources/>}/>
                 <Route path="contact" element={<Contact/>}/>
-                <Route path="dashboard" element={ <Dashboard/>}></Route>
-                <Route path="login" element={ <Login/>}></Route>
-                <Route path="sign-up" element={ <Sign/>}></Route>
+                <Route path="dashboard" element={ <Dashboard/>}>
+                    
+                </Route>
+                <Route path="login" element={ <Login/>}/>
+                <Route path="sign-up" element={ <Sign/>}/>
             </Route>
         </Routes>
     )

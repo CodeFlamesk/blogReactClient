@@ -8,11 +8,14 @@ import { useState } from "react"
 import RightButton from "components/RightButton/RightButton"
 import RightButtonLink from "components/RightButton/RightButtonLink"
 import Images from "./Images/Images"
+import authAction from "action/authAction"
+import { useDispatch } from "react-redux"
 
 const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const dispatch = useDispatch()
 
     return (
         <section className="main-forms">
@@ -36,7 +39,7 @@ const Login = () => {
                                 <a className="main-forms__link" href="">Forgot Password?</a>
                             </div>
                             <div className="form__buttons">
-                                <RightButton cb={() => authAction.registration(email, password)}  type={'submit'} text={"Login"}/>
+                                <RightButton cb={() => dispatch(authAction.login(email, password)) }  type={'submit'} text={"Login"}/>
                                 <RightButtonLink text={"Sign Up"} to={"/sign-up"}/>
                             </div>	
                         </div>

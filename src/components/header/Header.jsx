@@ -8,7 +8,7 @@ import logoTablet from "./img/logo-small.webp"
 import HeaderTop from './HeaderTop/HeaderTop'
 import { useState } from 'react'
 import ButtonAdmin from 'components/Buttons/ButtonAdmin/ButtonAdmin'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { changeAdmin } from 'store/DashboardReducer'
 
 
@@ -45,7 +45,7 @@ const Header = () => {
     const dispatch = useDispatch();
 
     const [active, setActive] = useState(false);
-
+    const isAuth = useSelector(store => store.user.isAuth)
 
     return (
                 <header className={`header ${active ? " _active" : null}`}>
@@ -75,7 +75,10 @@ const Header = () => {
                                     
                                 </ul>
                             </nav> 
-                            <ButtonAdmin to={"/dashboard"} cb={() => dispatch(changeAdmin())}/>
+                            {
+                                isAuth && <ButtonAdmin to={"/dashboard"} cb={() => dispatch(changeAdmin())}/>
+                            }
+                            
                             <NavLink to="/contact" id="contact-button" className="button-orange">
                                 Contact Us
                             </NavLink>
