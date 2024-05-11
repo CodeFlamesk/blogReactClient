@@ -8,6 +8,7 @@ import image3 from "./img/image3.webp"
 import image4 from "./img/image4.webp"
 import image5 from "./img/image5.webp"
 import image6 from "./img/image6.webp"
+import Container from "components/Container/Container"
 
 
 const data = [
@@ -46,7 +47,9 @@ const data = [
 const PodcastEpizodes = () => {
     return (
         <div className="main__latest main-latest">
-            <div className="main-latest__container">
+            <Container>
+
+            
                 <div className="main-latest__items">
                     {
                         data.map(({img, text,title}) => {
@@ -76,7 +79,7 @@ const PodcastEpizodes = () => {
                     }
                     
                 </div>
-            </div>
+            </Container>
         </div>
     )
 }

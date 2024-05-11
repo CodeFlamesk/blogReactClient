@@ -4,6 +4,7 @@ import "./links.scss"
 import image1 from "./img/Icon.png"
 import image2 from "./img/image2.png"
 import image3 from "./img/image3.png"
+import Container from "components/Container/Container"
 
 const data = [
     {
@@ -29,7 +30,7 @@ const data = [
 const Links = () => {
     return (
         <section className="main__links main-links">	
-            <div className="main-links__container">
+            <Container>
                 <div className="main-links__body">
                     {
                         data.map(item => {
@@ -39,7 +40,7 @@ const Links = () => {
                         })
                     }
                 </div>
-            </div>
+            </Container>
         </section>
     )
 }

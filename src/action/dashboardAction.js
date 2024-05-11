@@ -2,6 +2,7 @@
 import axios from "axios"
 import { _API_URL } from "../../config"
 import { categoryGet, getPostOnId, getPostsAll } from "store/DashboardReducer";
+import $api from "../http/index";
 
 
 
@@ -11,7 +12,7 @@ class DashboardAction {
         try {   
             const formData = new FormData()
             formData.append("title", title)
-            const response = await  axios.post(`${_API_URL}/category`, formData);
+            const response = await $api.post(`/category`, formData);
 
             return response
         }catch(e){
@@ -22,7 +23,7 @@ class DashboardAction {
     getCategory(){
         return async dispatch => {
             try {
-                const response = await axios.get(`${_API_URL}/category`);
+                const response = await $api.get(`/category`);
                 return dispatch(categoryGet(response.data))
             } catch(e) {
                 console.log(e)
@@ -42,7 +43,7 @@ class DashboardAction {
             formData.append("mainTitle", mainTitle);
             formData.append("descriptionTag", descriptionTag);
 
-            const response = axios.post(`${_API_URL}/blog/${category}`, formData)
+            const response = await $api.post(`/blog/${category}`, formData)
             
             return response
         }catch(e) {
@@ -54,7 +55,7 @@ class DashboardAction {
     getPost(id){
         return async dispatch => {
             try {
-                const response = await axios.get(`${_API_URL}/blog/blog/${id}`);
+                const response = await $api.get(`/blog/blog/${id}`);
                 return dispatch(getPostOnId(response.data))
             }catch(e) {
                 console.log(e)
@@ -62,11 +63,10 @@ class DashboardAction {
             
         }
     }
-
+    
     getAllPost(categoryId) {
         return async dispatch => {
-            
-            const response = await axios.get(`${_API_URL}/blog/blogs/all?id=${categoryId}`,);
+            const response = await $api.get(`/blog/blogs/all?id=${categoryId}`,);
             return dispatch(getPostsAll(response.data));
         }
     }

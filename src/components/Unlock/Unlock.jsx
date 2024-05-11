@@ -5,11 +5,13 @@ import whitepapers from "./img/whitepapres.png"
 import white from "./img/white.png"
 
 import "./unlock.scss"
+import Container from 'components/Container/Container'
 
 const Unlock = () => {
     return (
 			<section className="main__unlock main-unlock">
-                <div className="main-unlock__container">
+                
+                    <Container>
                     <div className="main-unlock__items">
                         <div className="main-future__item item-action">
                             <div className="item-action__body">
@@ -105,8 +107,11 @@ const Unlock = () => {
                             </div>
                         </div>
                     </div>
+
+                    </Container>
                     
-                </div>
+                    
+                
             </section>
     )
 }

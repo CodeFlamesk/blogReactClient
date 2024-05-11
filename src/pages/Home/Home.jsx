@@ -4,15 +4,17 @@ import Links from 'components/Links/Links'
 import BlockHeaderItem from 'components/BlockHeaderItem/BlockHeaderItem'
 import RightButton from 'components/RightButton/RightButton'
 import Reviews from "components/Reviews/Reviews"
-import BottomLogo from "components/BottomLogo/BottomLogo"
+
 import Future from "components/Future/Future"
 import Explore from "components/Explore/Explore"
 import Unlock from "components/Unlock/Unlock"
 
 
+
 const Home = () => {
     return (
         <>
+            
             <HomeMainBlock/>
             <Links/>
             <BlockHeaderItem title={"FutureTech Features"} label={"Unlock the Power of"}/>

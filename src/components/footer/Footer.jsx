@@ -1,13 +1,15 @@
 
 import { Link } from "react-router-dom"
 import "./footer.scss"
+import Container from "components/Container/Container"
 
 
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="footer__container">
-                <div className="footer__top">
+            <Container>
+
+            <div className="footer__top">
                     <div className="footer__block">
                         <div className="footer__title">
                             <h3>Home</h3>
@@ -168,7 +170,7 @@ const Footer = () => {
                         <p>© 2024 FutureTech. All rights reserved.</p>
                     </div>
                 </div>
-            </div>
+            </Container>
         </footer>
     )
 }

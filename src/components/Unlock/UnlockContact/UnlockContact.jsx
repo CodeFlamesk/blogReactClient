@@ -5,10 +5,12 @@ import image from "assets/contacts/image1.png"
 import image2 from "assets/contacts/image2.png"
 
 import Title40 from "components/Title40/Title40"
+import Container from 'components/Container/Container'
 const UnlockContact = () => {
 	return (
 		<section className="main__unlock main-unlock">
-			<div className="main-unlock__container">
+			
+				<Container>
 				<div className="main-unlock__items">
 					<div className="main-future__item item-action">
 						<div className="item-action__body">
@@ -51,8 +53,10 @@ const UnlockContact = () => {
 						</div>
 					</div>
 				</div>
+				</Container>
 				
-			</div>
+				
+			
 		</section>
 				
 	)

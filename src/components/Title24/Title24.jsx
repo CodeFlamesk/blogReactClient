@@ -1,8 +1,8 @@
-
+import "./title-24.scss"
 
 const Title24 = ({text}) => {
     return (
-        <p>{text} </p>
+        <p className="title-24">{text}</p>
     )
 }
 

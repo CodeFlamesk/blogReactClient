@@ -7,9 +7,8 @@ import logoDesktop from "./img/logo-large.webp"
 import logoTablet from "./img/logo-small.webp"
 import HeaderTop from './HeaderTop/HeaderTop'
 import { useState } from 'react'
-import ButtonAdmin from 'components/Buttons/ButtonAdmin/ButtonAdmin'
-import { useDispatch, useSelector } from 'react-redux'
-import { changeAdmin } from 'store/DashboardReducer'
+
+import AuthHeader from './AuthHeader/AuthHeader'
 
 
 const menu = [
@@ -30,22 +29,17 @@ const menu = [
         page: "Resources"
     },
     {
-        to: "/login",
-        page: "Login"
+        to:"/contact",
+        page: "Contact Us"
     },
-    {
-        to: "/sign-up",
-        page: "Sign up"
-    }
-
 ]
 
 const Header = () => {
 
-    const dispatch = useDispatch();
+    
 
     const [active, setActive] = useState(false);
-    const isAuth = useSelector(store => store.user.isAuth)
+    
 
     return (
                 <header className={`header ${active ? " _active" : null}`}>
@@ -75,13 +69,7 @@ const Header = () => {
                                     
                                 </ul>
                             </nav> 
-                            {
-                                isAuth && <ButtonAdmin to={"/dashboard"} cb={() => dispatch(changeAdmin())}/>
-                            }
-                            
-                            <NavLink to="/contact" id="contact-button" className="button-orange">
-                                Contact Us
-                            </NavLink>
+                            <AuthHeader/>
                             <button onClick={() => setActive(prev => !prev)} className="icon-menu" aria-label="menu">
                                 <svg className={`ham hamRotate ham8 ${active ? " active" : null}`} viewBox="0 0 100 100" width="80" >
                                     <path

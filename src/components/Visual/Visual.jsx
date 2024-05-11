@@ -1,4 +1,5 @@
 
+import Container from "components/Container/Container"
 import image1 from "./img/image1.webp"
 import image2 from "./img/image2.webp"
 import image3 from "./img/image3.webp"
@@ -33,16 +34,16 @@ const data = [
 const Visual = () => {
     return (
         <div className="main__visual main-visual">
-        <div className="main-visual__container">
-            <div className="main-visual__items">
-                {
-                    data.map((item) => {
-                        return <ItemVideo {...item}/> 
-                    })
-                }
-            </div>
+            <Container>
+                <div className="main-visual__items">
+                    {
+                        data.map((item) => {
+                            return <ItemVideo {...item}/> 
+                        })
+                    }
+                </div>
+            </Container>
         </div>
-    </div>
     )
 } 
 

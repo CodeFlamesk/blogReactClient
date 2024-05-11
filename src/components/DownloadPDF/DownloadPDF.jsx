@@ -6,6 +6,7 @@ import image3 from "./img/Image3.png"
 
 import "./download.scss"
 import ButtonArrow from "components/Buttons/ButtonArrow/ButtonArrow"
+import Container from "components/Container/Container"
 
 const data = [
     {
@@ -28,8 +29,9 @@ const data = [
 const DownloadPDF = () => {
     return (
         <div className="main__latest main-latest">
-            <div className="main-latest__container">
-                <div className="main-latest__items">
+            <Container>
+
+            <div className="main-latest__items">
                     {
                         data.map((item) => {
                             return (
@@ -38,7 +40,7 @@ const DownloadPDF = () => {
                         })
                     }
                 </div>
-            </div>
+            </Container>
         </div>
     )
 }

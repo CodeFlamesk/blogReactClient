@@ -4,17 +4,30 @@ import { _API_URL } from "../../config";
 import $api from "../http/index"
 import {loginUser, registrationUser, logoutUser, changeLoadingAuth} from "store/userReducer"
 import axios from "axios";
+import { changeActiveModal, changeForgotActive, changeModalsForgotCode, changeModalsPassword, changeTextModal, changeTitleModal } from "store/modalsStore";
+import { changeForgotCode, changeForgotEmail } from "store/forgotStore";
 
 
 class AuthAction {
 
     login (email, password){
         return async dispatch => {
-            const response = await $api.post("/user/login", {email, password});
-            localStorage.setItem("token", response.data.accessToken);
-            console.log(response)
-            if(response.status === 200) {
-                return dispatch(loginUser(response.data.user));
+            try {
+                const response = await $api.post("/user/login", {email, password});
+                localStorage.setItem("token", response.data.accessToken);
+                console.log(response)
+                if(response.status === 200) {
+                    dispatch(changeTextModal("Вы можете перейти в личный кабинет и публиковать статьи на сайт."))
+                    dispatch(changeTitleModal("Вы вошли в аккаунт"))
+                    return dispatch(loginUser(response.data.user));
+                }
+
+            } catch (e) {
+                
+                dispatch(changeTitleModal("Произошла ошибка"))
+                dispatch(changeTextModal(e.response.data.message))
+            } finally {
+                dispatch( changeActiveModal(true))
             }
         }
     }
@@ -32,7 +45,7 @@ class AuthAction {
 
     logout(){
         return async dispatch => {
-            const response = await $api.post("/user/logout")
+            const response = await $api.post("/user/logout");
             localStorage.removeItem("token");    
             if(response.status === 200) {
                 return dispatch(logoutUser());
@@ -49,20 +62,54 @@ class AuthAction {
                 dispatch(changeLoadingAuth(true))
                 const response = await  axios.get(`${_API_URL}/user/refresh`, { withCredentials: true })
                 
-
-
                 if(response.status === 200) {
                     localStorage.setItem("token", response.data.accessToken);
-                    
                     return dispatch(loginUser(response.data.user), );
                 }
+
             } catch (e) {
-                alert("Error")
+                
             } finally {
                 dispatch(changeLoadingAuth(false))
             }
         }
     }
+
+    forgotPassword(email) {
+        return async dispatch => {
+            try {
+                const response = await $api.post(`/user/forgot`, {email});
+                dispatch(changeForgotEmail(email))
+                
+                if(response.status === 200) {
+                    return dispatch(changeForgotCode(response.data)), dispatch(changeModalsForgotCode(true))
+                };
+
+            }catch(e) {
+                console.log(e)
+            } 
+        }
+    }
+
+    forgotPassChange(email, password) {
+        return async dispatch =>  {
+            try {
+                    const response = await $api.post(`/user/password`, {email, password});
+                    if(response.status === 200) {
+                        dispatch(changeTextModal("Вы можете вернуться обратно и зайти в ваш аккаунт"))
+                        dispatch(changeTitleModal("Вы изменили пароль."))
+                        dispatch( changeActiveModal(true))
+                        return dispatch(changeForgotActive(false))
+                    }
+            } catch(e) {
+                
+            } finally {
+                dispatch(changeModalsForgotCode(false))
+                dispatch(changeModalsPassword(false))
+            }
+        }
+    }
+
 }
 
 export default new AuthAction

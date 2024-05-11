@@ -74,25 +74,7 @@ button {
 }
 
 
-[class*=_container] {
-	max-width: 1656px;
-	margin: 0px auto;
-	height: 100%;
-    overflow: hidden;
-	padding: 0px 30px;
-}
-@media(max-width:1440.98px){
-    [class*=_container] {
-        padding: 0px 20px;
-    }
 
-}
-@media(max-width:767.98px){
-    [class*=_container] {
-        padding: 0px 16px;
-    }
-
-}
 .wrapper {
 
     min-height: 100%;
@@ -101,6 +83,7 @@ button {
 }
 main {
     flex: 1 1 auto;
+    
 }
 
 

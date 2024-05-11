@@ -1,9 +1,11 @@
 
+import Container from "components/Container/Container"
 import "./resource-numbers.scss"
 const ResourceNumbers = () => {
     return (
         <div className="main__states states">
-        <div className="states__container">
+       
+            <Container>
             <div className="states__items">
                 <div className="states__item block-number">
                     <div className="block-number__title text-anim _anim-items">
@@ -38,7 +40,10 @@ const ResourceNumbers = () => {
                     </div>
                 </div>
             </div>
-        </div>
+
+            </Container>
+            
+        
     </div>
     )
 }

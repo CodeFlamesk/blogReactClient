@@ -1,3 +1,4 @@
+import Container from "components/Container/Container"
 import Title40 from "../Title40/Title40"
 import "./future.scss"
 
@@ -58,8 +59,9 @@ const Future = () => {
     return (
         
         <section className="main__future main-future">
-			<div className="main-future__container">
-				<div className="main-future__body">
+			<Container>
+
+			<div className="main-future__body">
 					{
 						data.map(({img,title, text, data}, i) => {
 							return (
@@ -98,7 +100,7 @@ const Future = () => {
 						})
 					}
 				</div>
-			</div>
+			</Container>
 		</section>
     )
 }

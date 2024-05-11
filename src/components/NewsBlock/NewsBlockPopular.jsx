@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import ImageItem from "./ImageItem/ImageItem"
 import "./news-block.scss";
+import Container from "components/Container/Container";
 
 const NewsBlockPopular = () => {
 
@@ -8,7 +9,7 @@ const NewsBlockPopular = () => {
 
     return (
         <section className="main__image main-activity">
-            <div className="main-activity__container">
+            <Container>
                 <div className="main-activity__items">
                     {
                         posts.map((item) => {
@@ -18,7 +19,7 @@ const NewsBlockPopular = () => {
                         })
                     }
                 </div>
-            </div>
+            </Container>
         </section>
     )
 }

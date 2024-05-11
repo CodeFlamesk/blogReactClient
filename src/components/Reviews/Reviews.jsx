@@ -9,6 +9,7 @@ import image1 from "./img/Image1.webp"
 import image2 from "./img/Image2.webp"
 import image3 from "./img/Image3.webp"
 import image5 from "./img/Image5.webp"
+import Container from "components/Container/Container"
 
 const data = [
     {
@@ -54,7 +55,8 @@ const data = [
 const Reviews = () => {
     return (
         <section className="main__real main-real">
-            <div className="main-real__container">
+            
+                <Container>
                 <div className="main-real__items">
                     {
                         data.map(item => {
@@ -64,7 +66,9 @@ const Reviews = () => {
                         })
                     }
                 </div>
-            </div>
+                </Container>
+                
+            
         </section>
     )
 }

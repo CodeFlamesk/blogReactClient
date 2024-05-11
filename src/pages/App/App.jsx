@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import dashboardAction from "action/dashboardAction";
 import authAction from "action/authAction";
 import LoadingApp from "components/Loading/LoadingApp";
+import PageNotFound from "pages/PageNotFound/PageNotFound";
+import { changeLoadingAuth } from "store/userReducer";
 
 const Home = lazy(() => import("../Home/Home"));
 const Blog = lazy(() => import("../Blog/Blog"));
@@ -40,7 +42,10 @@ function App() {
     useEffect(() => {
         if(localStorage.getItem("token")) {
             dispatch(authAction.checkAuth())
+        } else {
+            dispatch(changeLoadingAuth(false))
         }
+
     },[]);
 
     if(isLoading) {
@@ -61,6 +66,7 @@ function App() {
                 </Route>
                 <Route path="login" element={ <Login/>}/>
                 <Route path="sign-up" element={ <Sign/>}/>
+                <Route path="*" element={<PageNotFound/>}/>
             </Route>
         </Routes>
     )

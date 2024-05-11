@@ -5,11 +5,13 @@ import image from "./img/Image.webp"
 import image1 from "./img/Image2.webp"
 import image2 from "./img/Image4.webp"
 import image3 from "./img/Image3.webp"
+import Container from "components/Container/Container";
 
 const NewsBlock = () => {
     return (
         <section className="main__image main-activity">
-            <div className="main-activity__container">
+            
+                <Container>
                 <div className="main-activity__body">
                     <div className="main-activity__image">
                         <img src={image} alt="image"/>
@@ -168,7 +170,9 @@ const NewsBlock = () => {
                         </div>
                     </article>
                 </div>
-            </div>
+                </Container>
+                
+            
         </section>
     )
 }
