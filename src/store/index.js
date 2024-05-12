@@ -5,6 +5,7 @@ import { composeWithDevTools } from "@redux-devtools/extension";
 import { userReducer } from "./userReducer";
 import { modalsReducer } from "./modalsStore";
 import { forgotReducer } from "./forgotStore";
+import { newsletterReducer } from "./newsletterStore";
 
 
 
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     dashboard : dashboardReducer,
     user: userReducer,
     modals: modalsReducer,
-    forgot: forgotReducer
+    forgot: forgotReducer,
+    newsletter: newsletterReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

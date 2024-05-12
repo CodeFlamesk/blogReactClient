@@ -26,14 +26,16 @@ const Login = () => {
         active, 
         modalsActiveForgot, 
         modalsForgotCode,
-        modalsChangePassword
+        modalsChangePassword,
+        thankError
     } = useSelector(store => store.modals);
+
 
     const isAuth = useSelector(store => store.user.isAuth);
     const dispatch = useDispatch()
 
     const onLogin = async (email, pass) => {
-        dispatch(authAction.login(email, pass)) 
+        dispatch(authAction.login(email, pass))
     }
 
     const onActiveForgot = (e) => {
@@ -45,6 +47,11 @@ const Login = () => {
     const changeOff = () => {
         changeForgotActive(false)
         dispatch(offForgotModal())
+    }
+
+    const onForgotPassword = () => {
+        dispatch(changeForgotActive(true))
+        dispatch(changeActiveModal(false))
     }
 
     return (
@@ -71,8 +78,14 @@ const Login = () => {
                                     <button type="button" className="main-forms__link" onClick={(e) => onActiveForgot(e)}>Forgot Password?</button>
                                 </div>
                                 <div className="form__buttons">
-                                    <RightButton cb={() => onLogin(email, password)}  type={'submit'} text={"Login"}/>
-                                    <RightButtonLink text={"Sign Up"} to={"/sign-up"}/>
+                                    <RightButton cb={() => {
+                                        onLogin(email, password)
+                                            .catch(setPassword(""))
+                                            .finally(() => {
+                                                setPassword(""), setEmail("")
+                                            })
+                                    }}  type={'submit'} text={"Login"}/>
+                                    <RightButtonLink text={"Sign Up"} to={"/signup"}/>
                                 </div>	
                             </div>
                         </div>
@@ -87,8 +100,12 @@ const Login = () => {
             
             {
                 active && 
-                    <ModalsParent cb={() => dispatch(changeActiveModal(false))}>
-                        <ModalsThank/>
+                    <ModalsParent closeB={true} cb={() => dispatch(changeActiveModal(false))}>
+                        <ModalsThank>
+                            {
+                                thankError &&  <RightButton cb={() => onForgotPassword()} text={"Восстановить пароль?"}/>
+                            }
+                        </ModalsThank>
                     </ModalsParent>
             }
             {

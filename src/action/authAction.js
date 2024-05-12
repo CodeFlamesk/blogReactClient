@@ -1,11 +1,29 @@
 
 
 import { _API_URL } from "../../config";
-import $api from "../http/index"
-import {loginUser, registrationUser, logoutUser, changeLoadingAuth} from "store/userReducer"
+import $api from "../http/index";
 import axios from "axios";
-import { changeActiveModal, changeForgotActive, changeModalsForgotCode, changeModalsPassword, changeTextModal, changeTitleModal } from "store/modalsStore";
-import { changeForgotCode, changeForgotEmail } from "store/forgotStore";
+import {
+    loginUser,
+    registrationUser, 
+    logoutUser, 
+    changeLoadingAuth
+} from "store/userReducer"
+
+import { 
+    changeActiveModal, 
+    changeForgotActive, 
+    changeModalsForgotCode, 
+    changeModalsPassword, 
+    changeTextModal, 
+    changeThankError, 
+    changeTitleModal 
+} from "store/modalsStore";
+
+import { 
+    changeForgotCode, 
+    changeForgotEmail 
+} from "store/forgotStore";
 
 
 class AuthAction {
@@ -15,7 +33,7 @@ class AuthAction {
             try {
                 const response = await $api.post("/user/login", {email, password});
                 localStorage.setItem("token", response.data.accessToken);
-                console.log(response)
+                
                 if(response.status === 200) {
                     dispatch(changeTextModal("Вы можете перейти в личный кабинет и публиковать статьи на сайт."))
                     dispatch(changeTitleModal("Вы вошли в аккаунт"))
@@ -23,9 +41,9 @@ class AuthAction {
                 }
 
             } catch (e) {
-                
                 dispatch(changeTitleModal("Произошла ошибка"))
                 dispatch(changeTextModal(e.response.data.message))
+                dispatch(changeThankError(true));
             } finally {
                 dispatch( changeActiveModal(true))
             }
@@ -84,7 +102,6 @@ class AuthAction {
                 if(response.status === 200) {
                     return dispatch(changeForgotCode(response.data)), dispatch(changeModalsForgotCode(true))
                 };
-
             }catch(e) {
                 console.log(e)
             } 

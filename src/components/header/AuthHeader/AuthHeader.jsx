@@ -25,7 +25,7 @@ const AuthHeader = () => {
                 <NavLink to="/login" className="menu__link ">Login</NavLink>
             </li>
             <li className="menu__item">
-                <NavLink to='/sign-up' className="menu__link ">Sign Up</NavLink>
+                <NavLink to='/signup' className="menu__link ">Sign Up</NavLink>
             </li>
         </ul>
     )

@@ -5,7 +5,8 @@ const defaultState = {
     active: false,
     modalsActiveForgot: false,
     modalsForgotCode: false,
-    modalsChangePassword: false
+    modalsChangePassword: false,
+    thankError: false
 }
 
 const CHANGE_ACTIVE_MODAL = "CHANGE_ACTIVE_MODAL";
@@ -14,7 +15,9 @@ const CHANGE_TITLE_MODAL = "CHANGE_TITLE_MODAL";
 const CHANGE_ACTIVE_FORGOT = "CHANGE_ACTIVE_FORGOT";
 const MODALS_FORGOT_CODE = "MODALS_FORGOT_CODE";
 const MODALS_PASSWORD = "MODALS_PASSWORD";
-const OFF_MODAL_FORGOT = "OFF_MODAL_FORGOT"
+const OFF_MODAL_FORGOT = "OFF_MODAL_FORGOT";
+const CHANGE_THANK_ERROR = "CHANGE_THANK_ERROR";
+
 
 export const modalsReducer = (state = defaultState, action) => {
     switch(action.type) {
@@ -32,6 +35,8 @@ export const modalsReducer = (state = defaultState, action) => {
             return {...state, modalsChangePassword: action.payload}
         case OFF_MODAL_FORGOT: 
             return {...state, modalsActiveForgot: false, modalsForgotCode: false, modalsChangePassword:false }
+        case CHANGE_THANK_ERROR: 
+            return {...state, thankError: action.payload}
             default: 
                 return state 
     }
@@ -44,3 +49,4 @@ export const changeForgotActive = (payload) => ({type:CHANGE_ACTIVE_FORGOT, payl
 export const changeModalsForgotCode = (payload) => ({type:MODALS_FORGOT_CODE, payload});
 export const changeModalsPassword = (payload) => ({type:MODALS_PASSWORD, payload});
 export const offForgotModal = () => ({type:OFF_MODAL_FORGOT});
+export const changeThankError = (payload) => ({type:CHANGE_THANK_ERROR, payload});

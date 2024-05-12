@@ -6,9 +6,11 @@ import logoMobile from "./img/logo-mobile.webp"
 import logoDesktop from "./img/logo-large.webp"
 import logoTablet from "./img/logo-small.webp"
 import HeaderTop from './HeaderTop/HeaderTop'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import AuthHeader from './AuthHeader/AuthHeader'
+import { useDispatch, useSelector } from 'react-redux'
+import { changeSubscribe } from 'store/newsletterStore'
 
 
 const menu = [
@@ -36,14 +38,23 @@ const menu = [
 
 const Header = () => {
 
+    const {newsletter} = useSelector(store => store.newsletter)
+
     
+    const dispatch = useDispatch()
+    useEffect(() => {
+        if(localStorage.getItem("newsletterBlog")) {
+            dispatch(changeSubscribe(localStorage.getItem("newsletterBlog")))
+        }
+    }, [])
+
 
     const [active, setActive] = useState(false);
     
 
     return (
                 <header className={`header ${active ? " _active" : null}`}>
-                <HeaderTop/>
+                {!newsletter && <HeaderTop/>}
                 <div className="header__body">
                     <div className="header__container">
                         <div className="header__content">

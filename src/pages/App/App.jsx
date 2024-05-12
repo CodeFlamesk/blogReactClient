@@ -61,11 +61,9 @@ function App() {
                 <Route path="podcast" element={<Podcast/>}/>
                 <Route path="resourse" element={<Resources/>}/>
                 <Route path="contact" element={<Contact/>}/>
-                <Route path="dashboard" element={ <Dashboard/>}>
-                    
-                </Route>
+                <Route path="dashboard" element={ <Dashboard/>}/>
                 <Route path="login" element={ <Login/>}/>
-                <Route path="sign-up" element={ <Sign/>}/>
+                <Route path="signup" element={ <Sign/>}/>
                 <Route path="*" element={<PageNotFound/>}/>
             </Route>
         </Routes>
