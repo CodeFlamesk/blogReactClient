@@ -91,7 +91,7 @@ class AuthAction {
                 
                 if(response.status === 200) {
                     localStorage.setItem("token", response.data.accessToken);
-                    return dispatch(loginUser(response.data.user), );
+                    return dispatch(loginUser(response.data.user));
                 }
 
             } catch (e) {

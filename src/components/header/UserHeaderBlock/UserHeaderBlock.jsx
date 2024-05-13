@@ -38,7 +38,7 @@ const UserHeaderBlock = () => {
                         </button>
                     </div>
                     
-                        <RightButtonLink to={"/dashboard"} text={"User settings"}/>
+                        <RightButtonLink to={"/settings"} text={"User settings"}/>
                         <ButtonRight cb={() => dispatch(authAction.logout())} text={"Logout"}/>
                 
                 </div>  

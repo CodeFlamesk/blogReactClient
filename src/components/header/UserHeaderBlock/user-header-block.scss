@@ -30,12 +30,14 @@
     top: 0px;
     border-radius:12px;
     background-color: #141414;
+    box-shadow: 3px 3px 4px #5f5454, -3px -3px 4px #5f5454;
 }
 
 
 
 .user-info__header {
     display: flex;
+    margin-bottom: 10px;
     gap: 12px;
     justify-content: space-between;
 }

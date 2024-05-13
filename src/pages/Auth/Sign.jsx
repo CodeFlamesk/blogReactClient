@@ -21,7 +21,12 @@ const Sign = () => {
     const {active} = useSelector(store => store.modals)
     const isAuth = useSelector(store => store.user.isAuth)
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+
+    const onSign = async (email, pass, name, lastname) => {
+        dispatch(authAction.registration(email, pass, name, lastname))
+    }
+
 
     return (
         <>
@@ -45,8 +50,11 @@ const Sign = () => {
                             </div>
                             <div className="form__buttons">
                                 <RightButton cb={() => {
-                                    console.log("click")
-                                    dispatch(authAction.registration(email, password, name, lastname))
+                                    onSign(email, password, name, lastname)
+                                        .catch(() => {
+                                            setEmail("")
+                                            setPassword("")
+                                        })
                                     
                                 }} text={"Sign Up"} type={"submit"} />
                             </div>

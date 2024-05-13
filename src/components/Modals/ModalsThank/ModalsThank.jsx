@@ -1,7 +1,5 @@
 import Title24 from "components/Title24/Title24"
 
-import "./modals-thank-body.scss"
-
 import { useDispatch, useSelector } from "react-redux"
 import RightButtonLink from "components/RightButton/RightButtonLink"
 import RightButton from "components/RightButton/RightButton"

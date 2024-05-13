@@ -1,0 +1,36 @@
+import React from 'react'
+
+import "./settings-panel-buttons.scss"
+import ButtonRight from 'components/Buttons/buttonRight/ButtonRight'
+import { useDispatch } from 'react-redux'
+import { changeParamSettings } from 'store/userReducer'
+
+const data = [
+    {
+        text: "Сhange Password",
+        params:"changePassword"
+    },
+    {
+        text: "Сhange User Info",
+        params:"changeInfo"
+    },
+]
+
+const SettingsPanelButtons = () => {
+
+    const dispatch = useDispatch()
+
+    return (
+        <div className='buttons-list-user'>
+            {
+                data.map(({text, params}) => {
+                    return (
+                        <ButtonRight cb={() => dispatch(changeParamSettings(params))} text={text}/>
+                    )
+                })
+            }
+        </div>
+    )
+}
+
+export default SettingsPanelButtons

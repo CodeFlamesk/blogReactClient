@@ -17,6 +17,7 @@ const Contact = lazy(() => import("../Contact/Contact"));
 const Dashboard = lazy(() => import("../Dashboard/Dashboard"));
 const Login = lazy(() => import("../Auth/Login"));
 const Sign = lazy(() => import("../Auth/Sign"));
+const Settings = lazy(() => import("../UserSettings/UserSettings"))
 
 function App() {
 
@@ -64,6 +65,7 @@ function App() {
                 <Route path="dashboard" element={ <Dashboard/>}/>
                 <Route path="login" element={ <Login/>}/>
                 <Route path="signup" element={ <Sign/>}/>
+                <Route path="settings" element={ <Settings/>}/>
                 <Route path="*" element={<PageNotFound/>}/>
             </Route>
         </Routes>

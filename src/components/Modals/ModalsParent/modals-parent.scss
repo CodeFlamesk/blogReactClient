@@ -35,3 +35,16 @@
     flex-direction: column;
     gap: 0.375rem;
 }
+.modals-thank-body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+.modals-thank-body__buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}

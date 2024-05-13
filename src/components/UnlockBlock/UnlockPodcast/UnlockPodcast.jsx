@@ -14,6 +14,9 @@ const UnlockPodcast = () => {
             <FututreBlockParent 
                 childrenLeft={<Left/> }
                 childrenRight={<Right/>} />
+            <FututreBlockParent 
+                childrenLeft={<Left/> }
+                childrenRight={<Right/>} />
         </UnlockBlockParent>
     )
 }
@@ -35,7 +38,7 @@ const Left = () => {
 }
 const Right = () => {
     return (
-        <div className="image-cart__items">
+        <>
             <div className="image-video__image">
                 <img src={aui} alt="image"/>
             </div>
@@ -57,7 +60,7 @@ const Right = () => {
                     </ul>
                 </div>
             </div>
-        </div>
+        </>
                     
     )
 }
