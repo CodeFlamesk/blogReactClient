@@ -1,5 +1,5 @@
 
-import UnlockContact from "components/Unlock/UnlockContact/UnlockContact"
+import UnlockContact from "components/UnlockBlock/UnlockContact/UnlockContact"
 import MainBlockContact from "./MainBlockContact/MainBlockContact"
 
 const Contact = () => {

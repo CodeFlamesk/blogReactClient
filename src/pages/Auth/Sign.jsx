@@ -8,6 +8,9 @@ import RightButtonLink from 'components/RightButton/RightButtonLink';
 import Images from './Images/Images';
 import authAction from 'action/authAction';
 import { useDispatch, useSelector } from 'react-redux';
+import ModalsParent from 'components/Modals/ModalsParent/ModalsParent';
+import ModalsThank from 'components/Modals/ModalsThank/ModalsThank';
+import { changeActiveModal } from 'store/modalsStore';
 
 
 const Sign = () => {
@@ -15,17 +18,13 @@ const Sign = () => {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [lastname, setLastname] = useState("");
-
+    const {active} = useSelector(store => store.modals)
     const isAuth = useSelector(store => store.user.isAuth)
-
-    useEffect(() => {
-        console.log(isAuth)
-    }, [isAuth]);
 
     const dispatch = useDispatch()
 
     return (
-        
+        <>
             <section className="main-forms">
                 <div className="main-forms__container">
                     <div className="main-forms__body">
@@ -61,8 +60,13 @@ const Sign = () => {
                     </div>
                 </div>
             </section> 
-            
-        
+            {
+                active && 
+                    <ModalsParent closeB={true} cb={() => dispatch(changeActiveModal(false))}>
+                        <ModalsThank></ModalsThank>
+                    </ModalsParent>
+            }
+        </>
     )
 }
 

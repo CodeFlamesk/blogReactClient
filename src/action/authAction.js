@@ -52,11 +52,20 @@ class AuthAction {
 
     registration (email, password, name, surname){
         return async dispatch => {
-            const response = await $api.post(`/user/registration`, {email, password, name, surname});
-            console.log(response)
-            localStorage.setItem("token", response.data.accessToken);
-            if(response.status === 200) {
-                return dispatch(registrationUser(response.data.user));
+            try {
+                const response = await $api.post(`/user/registration`, {email, password, name, surname});
+                
+                localStorage.setItem("token", response.data.accessToken);
+                if(response.status === 200) {
+                    dispatch(changeTextModal("Перейдите в личный кабинет, чтобы изменить информацию"))
+                    dispatch(changeTitleModal("Вы создали аккаунт"))
+                    return dispatch(registrationUser(response.data.user));
+                }
+            } catch(e) {
+                dispatch(changeTextModal(e.response.data.message))
+                dispatch(changeTitleModal("Произошла ошибка"))
+            } finally {
+                dispatch( changeActiveModal(true))
             }
         }
     }

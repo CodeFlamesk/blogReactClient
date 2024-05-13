@@ -2,7 +2,8 @@ import BlockHeaderItem from "components/BlockHeaderItem/BlockHeaderItem"
 
 import PodcastEpizodes from "components/PodcastEpizodes/PodcastEpizodes"
 import TitleMainBlock from "components/TitleMainBlock/TitleMainBlock"
-import UnlockPodcast from "components/UnlockPodcast/UnlockPodcast"
+import UnlockPodcast from "components/UnlockBlock/UnlockPodcast/UnlockPodcast"
+
 
 
 const Podcast = () => {

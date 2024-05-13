@@ -14,10 +14,7 @@
         margin-bottom: 0 !important;
     }
     .list-item {
-        
-       
         // .list-item__ul
-        
         &__ul {
             border: 1px solid rgb(38, 38, 38);
             border-radius: 13px;
@@ -59,7 +56,6 @@
     
 }
 
-
 .image-cart {
 
     // .image-cart__list
@@ -77,23 +73,7 @@
     }
 }
 
-.user-action {
 
-    // .user-action__label
-    &__body {
-
-    }
-    &__label {
-        color: rgb(255, 255, 255);
-        font-family: Inter;
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 150%;
-        letter-spacing: -3%;
-        text-align: left;
-    }
-
-}
 .image-bottom {
 
     // .image-bottom__title

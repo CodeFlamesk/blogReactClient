@@ -90,7 +90,6 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="main-forms__items">
-                            
                             <Images/>
                         </div>
                     </div>
