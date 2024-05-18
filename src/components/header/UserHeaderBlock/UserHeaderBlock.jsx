@@ -20,7 +20,6 @@ const UserHeaderBlock = () => {
     const [block] = useAutoAnimate()
     const [show, setShow] = useState()
     const dispatch = useDispatch();
-   
 
     return (
         <div ref={block} className="user-header__body">
@@ -40,7 +39,7 @@ const UserHeaderBlock = () => {
                     
                         <RightButtonLink to={"/settings"} text={"User settings"}/>
                         <ButtonRight cb={() => dispatch(authAction.logout())} text={"Logout"}/>
-                
+                        
                 </div>  
             }
             

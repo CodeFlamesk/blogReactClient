@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { v4 } from "uuid"
 
 import "./login.scss"
+
 import RightButtonLink from 'components/RightButton/RightButtonLink';
 import Images from './Images/Images';
 import authAction from 'action/authAction';
@@ -32,7 +33,7 @@ const Sign = () => {
         <>
             <section className="main-forms">
                 <div className="main-forms__container">
-                    <div className="main-forms__body">
+                    <div className="main-forms__body-login">
                         <div className='main-forms__header-item header-item block-margin'>
                             <div className='header-item__title'>
                                 <h2><span>Sign Up</span></h2>
@@ -41,14 +42,14 @@ const Sign = () => {
                                 <p>Join our community today! Create an account to unlock exclusive features and personalized experiences.</p>
                             </div>
                         </div>
-                        <form  className="main-forms__form form">
-                            <div className="form__body">
+                        <form  className="main-forms__form-login form-login">
+                            <div className="form-login__body">
                                 <Input setValue={setName} value={name} id={v4()} type={"text"} holder={"Enter First Name"}  />
                                 <Input setValue={setLastname} value={lastname} id={v4()} type={"text"} holder={"Enter Last Name"}  />
                                 <Input setValue={setEmail} value={email} id={v4()} type={"email"} holder={"Enter your Email"}  />
                                 <Input setValue={setPassword} value={password} id={v4()} type={"text"} holder={"Enter your Password"}  />
                             </div>
-                            <div className="form__buttons">
+                            <div className="form-login__buttons">
                                 <RightButton cb={() => {
                                     onSign(email, password, name, lastname)
                                         .catch(() => {

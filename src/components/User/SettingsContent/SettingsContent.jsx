@@ -5,11 +5,13 @@ import ChangePassword from "./ChangePassword/ChangePassword"
 import "./settings-content.scss"
 import { useSelector } from "react-redux"
 import ChangeInfo from "./ChangeInfo/ChangeInfo"
+import DeleteAccount from "./DeleteAccount/DeleteAccount"
 
 
 const data = {
     changePassword: "Сhange your password",
-    changeInfo: "Change User Info"
+    changeInfo: "Change User Info",
+    deleteAcc: "Log out or delete account",
 }
 
 const SettingsContent = () => {
@@ -28,6 +30,9 @@ const SettingsContent = () => {
 
                 {
                     paramSettings === "changeInfo" && <ChangeInfo/>
+                }
+                {
+                    paramSettings === "deleteAcc" && <DeleteAccount/>
                 }
             </div>
         </div>

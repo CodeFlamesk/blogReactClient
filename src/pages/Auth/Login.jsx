@@ -59,7 +59,7 @@ const Login = () => {
             {
                 !isAuth && <section className="main-forms">
                 <div className="main-forms__container">
-                    <div className="main-forms__body">
+                    <div className="main-forms__body-login">
                         <div className='main-forms__header-item header-item block-margin'>
                             <div className='header-item__title'>
                                 <h2><span>Login</span></h2>
@@ -68,8 +68,8 @@ const Login = () => {
                                 <p>Welcome back! Please log in to access your account.</p>
                             </div>
                         </div>
-                        <div className="main-forms__form form">
-                            <div className="form__body">
+                        <div className="main-forms__form-login form-login">
+                            <div className="form-login__body">
                                 <Input setValue={setEmail} value={email} id={v4()} type={"email"} holder={"Enter your Email"}  />
                                 <Input setValue={setPassword} value={password} id={v4()} type={"text"} holder={"Enter your Password"}  />
                             </div>
@@ -77,7 +77,7 @@ const Login = () => {
                                 <div className="main-forms__title">
                                     <button type="button" className="main-forms__link" onClick={(e) => onActiveForgot(e)}>Forgot Password?</button>
                                 </div>
-                                <div className="form__buttons">
+                                <div className="form-login__buttons">
                                     <RightButton cb={() => {
                                         onLogin(email, password)
                                             .catch(setPassword(""))

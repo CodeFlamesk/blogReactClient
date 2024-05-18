@@ -1,4 +1,4 @@
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route, Navigate} from "react-router-dom"
 import Layout from "../Layout/Layout"
 import { lazy, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
@@ -24,8 +24,7 @@ function App() {
 
     const activePostId = useSelector(store => store.dashboard.activePostId);
     const categoryId = useSelector(store => store.dashboard.categoryId)
-    const isLoading = useSelector(store => store.user.isLoading)
-
+    const {isLoading, isAuth} = useSelector(store => store.user)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -53,7 +52,7 @@ function App() {
         return <LoadingApp/>
     }
 
-    return (
+    return ( 
         <Routes>
             <Route path="/" element={ <Layout />}>
                 <Route index element={<Home/>}/>
@@ -65,7 +64,11 @@ function App() {
                 <Route path="dashboard" element={ <Dashboard/>}/>
                 <Route path="login" element={ <Login/>}/>
                 <Route path="signup" element={ <Sign/>}/>
-                <Route path="settings" element={ <Settings/>}/>
+                
+                <Route 
+                    path="/settings" 
+                    element={isAuth ? <Settings/> : <Navigate to="/login" />} 
+                    />
                 <Route path="*" element={<PageNotFound/>}/>
             </Route>
         </Routes>

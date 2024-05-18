@@ -14,6 +14,10 @@ const data = [
         text: "Сhange User Info",
         params:"changeInfo"
     },
+    {
+        text: "Delete",
+        params:"deleteAcc"
+    },
 ]
 
 const SettingsPanelButtons = () => {
