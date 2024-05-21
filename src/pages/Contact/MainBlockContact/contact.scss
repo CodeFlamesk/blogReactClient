@@ -1,23 +1,15 @@
 .main-contact {
 
-    // .main-contact__container
-    
-    &__container {
-        
-    }
-
     // .main-contact__items
-
     &__items {
 
         display: grid;
         grid-template-columns: repeat(4,1fr);
         @media(max-width:1200.98px){
-            
-                grid-template-columns: repeat(3,1fr);
-                grid-template-areas: "main-contact__item-1 main-contact__item-2 main-contact__item-3"
-                "main-contact__item-4 main-contact__item-4 main-contact__item-4";
-            
+            grid-template-columns: repeat(3,1fr);
+            grid-template-areas: "main-contact__item-1 main-contact__item-2 main-contact__item-3"
+            "main-contact__item-4 main-contact__item-4 main-contact__item-4";
+        
         }
         @media(max-width:991.98px){
             grid-template-columns: repeat(2,1fr);
@@ -29,7 +21,7 @@
             grid-template-areas: "main-contact__item-1" 
             "main-contact__item-2 "
             "main-contact__item-3"
-             "main-contact__item-4";
+            "main-contact__item-4";
         }
     }
 

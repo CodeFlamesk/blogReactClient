@@ -2,9 +2,9 @@
 
 
 import "./send-button.scss"
-const SendButton = () => {
+const SendButton = ({cb}) => {
     return (
-        <button className="button__send">Send</button>
+        <button onClick={e => cb(e)} className="button__send">Send</button>
     )
 }
 

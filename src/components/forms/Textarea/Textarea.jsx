@@ -2,11 +2,14 @@
 
 import "./textarea.scss"
 
-const Textarea = ({text}) => {
+const Textarea = ({text, value, setValue}) => {
     return (
         <div className="form__item  ">
             <label className="form__label">{text}</label>
-            <textarea className="form__textarea" name="textarea" cols="30" rows="10" placeholder="Enter your Message"></textarea>
+            <textarea
+                onChange={e => setValue(e.target.value)}
+                value={value} 
+                className="form__textarea" name="textarea"  placeholder="Enter your Message"></textarea>
         </div>
     )
 }

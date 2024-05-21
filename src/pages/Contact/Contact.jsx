@@ -5,10 +5,8 @@ import MainBlockContact from "./MainBlockContact/MainBlockContact"
 const Contact = () => {
     return (
         <div>
-
             <MainBlockContact/>
             <UnlockContact/>
-            
         </div>
     )
 }
