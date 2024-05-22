@@ -7,8 +7,11 @@ import SendButton from "components/forms/SendButton/SendButton";
 import Textarea from "components/forms/Textarea/Textarea";
 import { useState } from "react";
 import contactFormAction from "action/contactFormAction";
+import ModalFeedback from "components/Modals/ModalFeedback/ModalFeedback";
 
 const ContactForm = () => {
+
+    const [active, setActive] = useState(false)
 
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
@@ -21,11 +24,16 @@ const ContactForm = () => {
         setChecked(e.target.checked)
     }
 
-    const onClickSubmitMessage = (e) => {
+    const onClickSubmitMessage = async (e) => {
         //оно не возвращает ответ хотя запрос отправляется успешно
         e.preventDefault();
         if(checked && message !== "" && firstName && lastName && number && email) {
-            contactFormAction.sendMessageFromContactPage(lastName, firstName, email, message, number)
+            await contactFormAction.sendMessageFromContactPage(lastName, firstName, email, message, number)
+                .then(res => {
+                    if(res.status === 200) {
+                        setActive(true)
+                    }
+                })
         }
     }
 
@@ -48,6 +56,9 @@ const ContactForm = () => {
                     </div>
                 </div>
             </form>
+            {
+                active && <ModalFeedback  mainTitle={"You have successfully sent a message"}/>
+            }
         </div>
     )
 }
