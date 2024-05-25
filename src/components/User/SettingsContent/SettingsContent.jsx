@@ -6,12 +6,17 @@ import "./settings-content.scss"
 import { useSelector } from "react-redux"
 import ChangeInfo from "./ChangeInfo/ChangeInfo"
 import DeleteAccount from "./DeleteAccount/DeleteAccount"
+import ChangeAvatar from "./ChangeAvatar/ChangeAvatar"
+import AddNewPost from "../AddNewPost/AddNewPost"
+
 
 
 const data = {
     changePassword: "Сhange your password",
     changeInfo: "Change User Info",
     deleteAcc: "Log out or delete account",
+    changeAvatar: "Change User Avatar",
+    addPost: "Add Post to Web-Site",
 }
 
 const SettingsContent = () => {
@@ -27,12 +32,17 @@ const SettingsContent = () => {
                 {
                     paramSettings === "changePassword" && <ChangePassword/>
                 }
-
                 {
                     paramSettings === "changeInfo" && <ChangeInfo/>
                 }
                 {
                     paramSettings === "deleteAcc" && <DeleteAccount/>
+                }
+                {
+                    paramSettings === "changeAvatar" && <ChangeAvatar/>
+                }
+                {
+                    paramSettings === "addPost" && <AddNewPost/>
                 }
             </div>
         </div>

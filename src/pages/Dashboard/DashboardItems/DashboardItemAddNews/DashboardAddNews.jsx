@@ -32,7 +32,6 @@ const DashboardAddNews = () => {
 
     function onAddFiles(e) {
         e.preventDefault();
-        console.log(e)
         const files =  [...e.target.files];
         setFiles(files);
     }
@@ -48,6 +47,7 @@ const DashboardAddNews = () => {
         }
     }
 
+
     const wrapSelectionWithTagStrong = (tag) => {
         const selection = window.getSelection();
         if (selection.rangeCount > 0) {
@@ -62,7 +62,6 @@ const DashboardAddNews = () => {
 
     useEffect(() => {
         getContent();
-        
     }, [description]);
 
     const categoryId = useSelector(store => store.dashboard.categoryId);
@@ -83,17 +82,14 @@ const DashboardAddNews = () => {
         console.log(voices)
     }
     */
-
-    
-
     return (
-        <div>
+        <div className=''>
             <Title title={"News "}/>
 
             <div className="category-form">
                 <InputItem placeholder={"Main title page"} value={mainTitle} onChange={onChangeMainTitle} type={"text"}/>
                 <InputItem placeholder={"Short description"} value={introduction} onChange={onChangeIntroduction} type={"text"}/>
-
+                
                 <InputItem placeholder={"Author news name"} value={author} onChange={onChangeAuthor} type={"text"}/>
 
                 <input className='input-item' onChange={e => onAddFiles(e)} type="file" />

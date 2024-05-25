@@ -18,6 +18,14 @@ const data = [
         text: "Delete",
         params:"deleteAcc"
     },
+    {
+        text: "Change Avatar",
+        params:"changeAvatar"
+    },
+    {
+        text: "Add Post",
+        params:"addPost"
+    },
 ]
 
 const SettingsPanelButtons = () => {

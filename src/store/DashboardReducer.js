@@ -7,7 +7,7 @@ const defaultState = {
     post: {},
     loadingBlog: true,
     posts: [],
-    activePostId:"66392af9f42375023539389e",
+    activePostId:"66523d3cf5ac562f3683c2a5",
 }
 
 const CHANGE_ADMIN = "CHANGE_ADMIN";

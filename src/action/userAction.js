@@ -47,11 +47,11 @@ class UserAction {
         }
     }
 
-    deleteAvatar( id) {
+    deleteAvatar(id) {
         return async dispatch => {
             try {
-                const response = $api.delete("/user/avatar", {id});
-
+                
+                const response = $api.delete(`/user/avatar/${id}`);
                 if(response.status === 200) {
                     return dispatch(registrationUser(response.data));
                 }
@@ -61,21 +61,14 @@ class UserAction {
         }
     }
 
-    
-
-
-
     deleteUser(id) {
         return async dispatch => {
             try {
-                
                 const response = await axios.delete(`${_API_URL}/user/del/${id}`, { withCredentials: true });
-
                 if(response.status === 200) {
                     localStorage.removeItem("token");  
                     return dispatch(logoutUser())
                 }
-
             } catch(e) {
                 console.log(e)
             }
