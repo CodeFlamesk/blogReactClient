@@ -93,7 +93,7 @@ class AuthAction {
                     localStorage.setItem("token", response.data.accessToken);
                     return dispatch(loginUser(response.data.user));
                 }
-
+                
             } catch (e) {
                 
             } finally {

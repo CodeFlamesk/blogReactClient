@@ -30,7 +30,7 @@ const data = [
 
 const SpollersItems = () => {
     return (
-        <div className="item-action__content tabs"> 
+        <div className=" tabs"> 
             {
                 data.map((item, i) => {
                     return (

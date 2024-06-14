@@ -19,9 +19,10 @@ const AddNewPost = () => {
     useEffect(() => {
         dispatch(dashboardAction.getCategory())
     }, [])
+
     const {id} = useSelector(store => store.user.user)
     const categoryId = useSelector(store => store.dashboard.categoryId);
-   
+
     const [file, setFile] = useState([]);
     const [introduction, setIntroduction] = useState("");
     const [mainTitle, setMainTitle] = useState("")
@@ -66,7 +67,6 @@ const AddNewPost = () => {
         }
     };
     
-
     return (
         
             <div className="form-upload-post">

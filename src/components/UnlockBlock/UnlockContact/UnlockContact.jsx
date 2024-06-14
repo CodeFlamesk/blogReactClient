@@ -6,9 +6,13 @@ import image2 from "assets/contacts/image2.png"
 import FututreBlockParent from "../FutureBlockParent/FututreBlockParent";
 import SpollersItems from "components/Spollers/SpollersItems/SpollersItems";
 import Title40 from "components/Title40/Title40";
+import AskModal from "components/Modals/AskModal/AskModal";
+import { useState } from "react";
+import ButtonRight from "components/Buttons/buttonRight/ButtonRight";
 
 
 const UnlockContact = () => {
+
     return (
         <UnlockBlockParent>
             <FututreBlockParent childrenLeft={<ContactFormLeft/>} childrenRight={<ContactForm/>}/>
@@ -18,6 +22,7 @@ const UnlockContact = () => {
 }
 
 const ContactFormLeft = () => {
+
     return (
         <>
             <div className="item-action__image">
@@ -33,6 +38,8 @@ const ContactFormLeft = () => {
 }
 
 const TabsLeft = () => {
+    const [active, setActive] = useState(false);
+
     return (
         <>
             <div className="item-action__image ">
@@ -44,15 +51,14 @@ const TabsLeft = () => {
             <div className="item-action__text">
                 <p>If the question is not available on our FAQ section, Feel free to contact us personally, we will resolve your respective doubts. </p>
             </div>
+
             <div className="item-action__button">
-                <button className="button-arrow button-arrow-dark button">
-                    <span className=" button-arrow__text">Ask Qustion</span>
-                    <span className="button-arrow__image">
-                        <i className="fa-solid fa-arrow-up"></i>
-                    </span>
-                    <span className="fill-container"></span>
-                </button>
+                <ButtonRight cb={() => setActive(true)} text={"Ask Qustion"}/>
+                
             </div>
+            {
+                active && <AskModal cb={() => setActive(false)}/>
+            }
         </>
     )
 }

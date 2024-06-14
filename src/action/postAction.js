@@ -3,8 +3,6 @@ import $api from "../http/index";
 class PostAction {
 
     async addNewPosts(intro, file, description, category, mainTitle, descriptionTag, id) {
-       
-            
             const formData = new FormData();
 
             formData.append("intro", intro);

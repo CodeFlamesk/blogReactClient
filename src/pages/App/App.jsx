@@ -23,7 +23,7 @@ function App() {
 
 
     const activePostId = useSelector(store => store.dashboard.activePostId);
-    const categoryId = useSelector(store => store.dashboard.categoryId)
+    const categoryId = useSelector(store => store.dashboard.categoryId);
     const {isLoading, isAuth} = useSelector(store => store.user)
     const dispatch = useDispatch();
 
@@ -45,7 +45,6 @@ function App() {
         } else {
             dispatch(changeLoadingAuth(false))
         }
-
     },[]);
 
     if(isLoading) {
