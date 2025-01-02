@@ -23,7 +23,7 @@ const Layout = () => {
             </main>
             {
                 layout === "client" && <Suspense>
-                <BottomLogo/>
+               
                 <Footer/>
             </Suspense>
             }

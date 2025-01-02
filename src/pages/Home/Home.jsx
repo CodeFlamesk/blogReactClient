@@ -68,38 +68,7 @@ const data = [
 
 const Home = () => {
     return (
-        <>
-            
-            <HomeMainBlock/>
-            <Links/>
-            <BlockHeaderItem title={"FutureTech Features"} label={"Unlock the Power of"}/>
-
-            <UnlockBlockParent>
-                {
-                    data.map((item, i) => {
-                        return (
-                            <FututreBlockParent childrenLeft={<ItemAction {...item}/>} childrenRight={<FutureItems data={item.data}/>}/>
-                        )
-                    })
-                }
-            </UnlockBlockParent>
-
-            <BlockHeaderItem title={"Explore FutureTech's In-Depth Blog Posts"} label={"A Knowledge Treasure Trove"}>
-                <RightButton text={"View All Blogs"}/>
-            </BlockHeaderItem>
-
-            <Explore/>
-            <BlockHeaderItem title={"Unlock Valuable Knowledge with FutureTech's Resources"} label={"Your Gateway to In-Depth Information"}>
-                <RightButton text={"View All Resources"}/>
-            </BlockHeaderItem>
-
-            <Unlock/>
-            <BlockHeaderItem title={"Real Words from Real Readers"} label={"What Our Readers Say"}>
-                <RightButton text={"View All Testimonials"}/>
-            </BlockHeaderItem>
-            <Reviews/>
-            
-        </>
+       <div>STMG</div>
     )
 }
 
